@@ -1,0 +1,17 @@
+# Ignore everything
+**
+
+# Allowed
+!api/
+!api_yamdb/
+!templates/
+!titles/
+!users/
+!manage.py
+!requirements.txt
+
+# Override allowed
+.idea/
+__pycache__/
+*.py[cod]
+*$py.class
