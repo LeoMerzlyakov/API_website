@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from dotenv import load_dotenv
 
-from decouple import config
+# from decouple import config
 
 load_dotenv()
 
@@ -18,7 +18,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '192.168.99.100',
-    '127.0.0.1',
+    '0.0.0.0',
     '[::1]',
     'testserver',
 ]
@@ -91,27 +91,27 @@ WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.getenv('DB_NAME', 'postgres'),
+        'USER': os.getenv('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'postgres'),
+        'HOST': os.getenv('DB_HOST', 'db'),
+        'PORT': os.getenv('DB_PORT', 5432),
     }
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': config('DB_ENGINE',
-                         default='django.db.backends.postgresql'),
-        'NAME': config('POSTGRES_DB', default='postgres'),
-        'USER': config('POSTGRES_USER', default='postgres'),
-        'PASSWORD': config('POSTGRES_PASSWORD', default='postgres'),
-        'HOST': config('POSTGRES_HOST', default='db'),
-        'PORT': config('POSTGRES_PORT', default=5432, cast=int),
-        'ATOMIC_REQUESTS': True,
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config('DB_ENGINE',
+#                          default='django.db.backends.postgresql'),
+#         'NAME': config('POSTGRES_DB', default='postgres'),
+#         'USER': config('POSTGRES_USER', default='postgres'),
+#         'PASSWORD': config('POSTGRES_PASSWORD', default='postgres'),
+#         'HOST': config('POSTGRES_HOST', default='db'),
+#         'PORT': config('POSTGRES_PORT', default=5432, cast=int),
+#         'ATOMIC_REQUESTS': True,
+#     }
+# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
