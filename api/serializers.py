@@ -2,8 +2,8 @@ import logging
 
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
+
 from rest_framework import serializers
-from rest_framework.generics import get_object_or_404
 from rest_framework.validators import UniqueValidator
 
 from titles.models import Category, Comment, Genre, Review, Title
