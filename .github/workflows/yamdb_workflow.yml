@@ -54,6 +54,10 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
+          sudo apt update            
+          sudo apt upgrade -y            
+          sudo apt install docker -y            
+          sudo apt install docker-compose -y
           sudo docker pull leomerzlyakov/yamdb_final:latest
           sudo docker-compose down
           sudo docker-compose up
