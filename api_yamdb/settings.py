@@ -3,6 +3,8 @@ from datetime import timedelta
 
 from dotenv import load_dotenv
 
+from decouple import config
+
 load_dotenv()
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'api_yamdb.settings')
@@ -97,6 +99,20 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT'),
     }
 }
+
+DATABASES = {
+    'default': {
+        'ENGINE': config('DB_ENGINE',
+                         default='django.db.backends.postgresql'),
+        'NAME': config('POSTGRES_DB', default='postgres'),
+        'USER': config('POSTGRES_USER', default='postgres'),
+        'PASSWORD': config('POSTGRES_PASSWORD', default='postgres'),
+        'HOST': config('POSTGRES_HOST', default='db'),
+        'PORT': config('POSTGRES_PORT', default=5432, cast=int),
+        'ATOMIC_REQUESTS': True,
+    }
+}
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
