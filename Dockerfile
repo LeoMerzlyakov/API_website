@@ -16,4 +16,3 @@ COPY . /code
 WORKDIR /code
 # при старте контейнера выполнить runserver 
 CMD gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000 
-# CMD python /code/manage.py runserver 0.0.0.0:8000
