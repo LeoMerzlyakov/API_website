@@ -1,2 +1,4 @@
 # yamdb_final
-![yamdb_final](https://github.com/github/docs/actions/workflows/yamdb_workflow.yml/badge.svg)
+[![yamdb_final workflow](https://github.com/leomerzlyakov/yamdb_final/workflows/yamdb_final workflow/badge.svg)]
+
+http://130.193.53.220/

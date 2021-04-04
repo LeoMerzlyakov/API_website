@@ -26,7 +26,7 @@ services:
       - ./media:/code/media
 
   nginx:
-    image: nginx:alpine
+    image: nginx:1.19.9-alpine
     container_name: nginx
     restart: always
     volumes:
